@@ -1,6 +1,7 @@
 package com.jerry.reviewspringmall.service.impl;
 
 import com.jerry.reviewspringmall.dao.ProductDao;
+import com.jerry.reviewspringmall.dto.ProductRequest;
 import com.jerry.reviewspringmall.model.Product;
 import com.jerry.reviewspringmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +16,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProductById(Integer productId) {
         return productDao.getProductById(productId);
+    }
+
+    @Override
+    public Integer createProduct(ProductRequest productRequest) {
+        return productDao.createProduct(productRequest);
     }
 }
