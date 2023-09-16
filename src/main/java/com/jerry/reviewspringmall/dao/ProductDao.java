@@ -1,6 +1,7 @@
 package com.jerry.reviewspringmall.dao;
 
 import com.jerry.reviewspringmall.constant.ProductCategory;
+import com.jerry.reviewspringmall.dto.ProductQueryParams;
 import com.jerry.reviewspringmall.dto.ProductRequest;
 import com.jerry.reviewspringmall.model.Product;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 public interface ProductDao {
 
-    List<Product> getProducts(ProductCategory category, String search);
+    List<Product> getProducts(ProductQueryParams productQueryParams);
 
     Product getProductById(Integer productId);
 

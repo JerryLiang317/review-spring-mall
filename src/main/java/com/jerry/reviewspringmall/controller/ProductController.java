@@ -1,6 +1,7 @@
 package com.jerry.reviewspringmall.controller;
 
 import com.jerry.reviewspringmall.constant.ProductCategory;
+import com.jerry.reviewspringmall.dto.ProductQueryParams;
 import com.jerry.reviewspringmall.dto.ProductRequest;
 import com.jerry.reviewspringmall.model.Product;
 import com.jerry.reviewspringmall.service.ProductService;
@@ -22,7 +23,11 @@ public class ProductController {
     public ResponseEntity<List<Product>> getProducts(
             @RequestParam(required = false) ProductCategory category,
             @RequestParam(required = false) String search){
-        List<Product> productList = productService.getProducts(category, search);
+        ProductQueryParams productQueryParams = new ProductQueryParams();
+        productQueryParams.setCategory(category);
+        productQueryParams.setSearch(search);
+
+        List<Product> productList = productService.getProducts(productQueryParams);
 
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
