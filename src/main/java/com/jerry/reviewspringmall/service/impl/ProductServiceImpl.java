@@ -1,6 +1,5 @@
 package com.jerry.reviewspringmall.service.impl;
 
-import com.jerry.reviewspringmall.constant.ProductCategory;
 import com.jerry.reviewspringmall.dao.ProductDao;
 import com.jerry.reviewspringmall.dto.ProductQueryParams;
 import com.jerry.reviewspringmall.dto.ProductRequest;

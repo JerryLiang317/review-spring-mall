@@ -1,6 +1,5 @@
 package com.jerry.reviewspringmall.dao.impl;
 
-import com.jerry.reviewspringmall.constant.ProductCategory;
 import com.jerry.reviewspringmall.dao.ProductDao;
 import com.jerry.reviewspringmall.dto.ProductQueryParams;
 import com.jerry.reviewspringmall.dto.ProductRequest;
@@ -37,6 +36,8 @@ public class ProductDaoImpl implements ProductDao {
             sql = sql + " AND product_name LIKE :search";
             map.put("search", "%" + productQueryParams.getSearch() + "%");
         }
+
+        sql = sql + " ORDER BY " +productQueryParams.getOrderby() + " " + productQueryParams.getSort();
 
         List<Product> productList = namedParameterJdbcTemplate.query(sql, map, new ProductRowMapper());
 
